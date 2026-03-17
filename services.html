@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Professional automotive repair services including oil change service, brake repair, tire care, and diagnostics at JP's Garage Aurora.">
+ <title>Automotive Repair Services - JP's Garage</title>
+  <style>
+  * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  width: 100%;
+}
+
+.skip-link {
+  position: absolute;
+  top: -2.5em;
+  left: 0.375em;
+  background: #000;
+  color: white;
+  padding: 0.5em;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+header,
+footer {
+  background-color: #d9d9d9;
+  padding: 1.25em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: #cc0000;
+  margin: 0;
+}
+
+header h1 img {
+  border: 0.1875em solid #cc0000;
+  border-radius: 0.5em;
+  padding: 0.3125em;
+  max-width: 100%;
+  height: auto;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.9375em;
+}
+
+nav ul li {
+  display: inline;
+}
+
+header a,
+footer a {
+  color: #183bf0;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.3125em 0.625em;
+  border-radius: 0.25em;
+  transition: all 0.3s ease;
+}
+
+header a:hover,
+footer a:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+header a:focus,
+footer a:focus {
+  outline: 0.125em solid #183bf0;
+  outline-offset: 0.125em;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+main {
+  padding: 2.5em 1.25em;
+  max-width: 75em;
+  margin: 0 auto;
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2.5em;
+  color: #183bf0;
+  font-size: 2.25em;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.625em, 1fr));
+  gap: 1.875em;
+}
+
+.service-card {
+  background-color: #f9f9f9;
+  border: 0.125em solid #ddd;
+  border-radius: 0.5em;
+  padding: 1.25em;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover,
+.service-card:focus-within {
+  transform: translateY(-0.3125em);
+  box-shadow: 0 0.3125em 0.9375em rgba(0, 0, 0, 0.1);
+}
+
+.service-card img {
+  width: 100%;
+  max-width: 100%;
+  height: 11.25em;
+  object-fit: cover;
+  border-radius: 0.5em;
+  margin-bottom: 0.9375em;
+  display: block;
+}
+
+.service-card h3 {
+  margin: 0.625em 0;
+  color: #cc0000;
+  font-size: 1.25em;
+}
+
+.service-card p {
+  color: #555;
+  font-size: 0.9375em;
+  margin: 0.625em 0;
+}
+
+footer {
+  background-color: #d9d9d9;
+  text-align: center;
+  justify-content: center;
+  margin-top: 2.5em;
+  padding: 1.25em;
+  flex-direction: column;
+  gap: 0.625em;
+  width: 100%;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.3125em;
+  flex-wrap: wrap;
+}
+
+.subscription-box {
+  margin-top: 0.9375em;
+  padding: 0.9375em;
+  background-color: #f0f0f0;
+  border-radius: 0.3125em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625em;
+  flex-wrap: wrap;
+}
+
+.subscription-box label {
+  margin: 0;
+  font-size: 0.875em;
+}
+
+.subscription-box input {
+  padding: 0.5em 0.75em;
+  border: 0.125em solid #ddd;
+  border-radius: 0.25em;
+  font-size: 0.875em;
+  width: 15.625em;
+  max-width: 100%;
+}
+
+.subscription-box button {
+  padding: 0.5em 1.25em;
+  background-color: #183bf0;
+  color: white;
+  border: none;
+  border-radius: 0.25em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.875em;
+}
+
+.subscription-box button:hover,
+.subscription-box button:focus {
+  background-color: #000000;
+}
+
+.subscription-box button:focus {
+  outline: 0.125em solid #183bf0;
+  outline-offset: 0.125em;
+}
+
+.subscription-message {
+  margin-top: 0.625em;
+  font-size: 0.875em;
+  color: #cc0000;
+  font-weight: bold;
+}
+
+footer a {
+  color: #183bf0;
+  margin: 0 0.3125em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 0.0625em;
+  height: 0.0625em;
+  padding: 0;
+  margin: -0.0625em;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-contrast: more) {
+  header,
+  footer {
+    background-color: #f0f0f0;
+  }
+
+  header a,
+  footer a {
+    border: 0.0625em solid #183bf0;
+  }
+
+  .service-card {
+    border: 0.1875em solid #333;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .service-card:hover,
+  .service-card:focus-within {
+    transform: none;
+  }
+}
+
+@media (max-width: 48em) {
+  main {
+    padding: 1.875em 1em;
+  }
+
+  h2 {
+    font-size: 1.875em;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subscription-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .subscription-box input {
+    width: 100%;
+  }
+}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header role="banner">
+    <h1>
+  <img 
+    src="images/JPs Garage logo.png" 
+    height="100" 
+    width="100" 
+    alt="JP's Garage automotive repair services logo">
+  <span class="sr-only">JP's Garage Automotive Repair Services</span>
+</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" aria-current="page">Services</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+        <li><a href="contact_us.html">Get in Touch</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <h2>Our Automotive Repair Services</h2>
+	<p style="text-align: center; max-width: 50em; margin: 0 auto 2em; color: #555; font-size: 1.1em;">
+  At JP's Garage, we offer comprehensive automotive repair services to keep your vehicle running at peak performance. Our certified technicians provide expert care for all your automotive needs, from routine maintenance to complex repairs.
+</p>
+    <div class="services-grid">
+  <article class="service-card">
+    <img src="images/oil change.jpg" alt="Professional oil change service performed by certified technician">
+    <h3>Oil Change Service</h3>
+    <p>Quick and affordable oil changes to keep your engine running smoothly. Our oil change service includes a multi-point inspection, premium oil options, and filter replacement to protect your engine and maximize its lifespan.</p>
+  </article>
+
+  <article class="service-card">
+    <img src="images/Tire_care.jpg" alt="Mechanic inspecting car tires in our service bay">
+    <h3>Tire Services</h3>
+    <p>Professional tire rotation, balancing, alignment, and replacements to extend tire life. We help you maintain optimal traction and fuel efficiency while ensuring your safety on the road with quality tire care.</p>
+  </article>
+
+  <article class="service-card">
+    <img src="images/car breaks.jpg" alt="Expert brake repair and automotive brake system maintenance">
+    <h3>Brake Repair</h3>
+    <p>Reliable brake repair, inspections, and replacements for safe driving. Our brake repair experts use quality parts and thorough testing to ensure your braking system performs flawlessly in all conditions.</p>
+  </article>
+
+  <article class="service-card">
+    <img src="images/electric car 2.jpg" alt="Modern car diagnostic equipment scanning vehicle systems">
+    <h3>Diagnostics</h3>
+    <p>Advanced computer diagnostics to quickly identify car issues. Our state-of-the-art diagnostic equipment pinpoints problems accurately, saving you time and money on automotive repair services.</p>
+  </article>
+</div>
+<section style="margin-top: 3em; padding: 1.5em; background-color: #f9f9f9; border-radius: 0.5em;">
+  <h3 style="color: #183bf0; text-align: center;">Why Choose Our Automotive Repair Services?</h3>
+  <p style="max-width: 50em; margin: 1em auto; text-align: center; color: #555;">
+    Every automotive repair service we provide is backed by years of experience and a commitment to excellence. Whether you need a routine oil change service or major brake repair, our team delivers honest assessments, transparent pricing, and quality workmanship you can trust.
+  </p>
+  <p style="max-width: 50em; margin: 1em auto; text-align: center; color: #555;">
+    Don't wait until small problems become big expenses. <a href="appointments.html" style="color: #183bf0; font-weight: bold; text-decoration: underline;">Schedule your automotive repair services today</a> and experience the JP's Garage difference.
+  </p>
+</section>
+  </main>
+
+  <footer role="contentinfo">
+    <nav aria-label="Footer navigation" class="footer-links">
+      <a href="index.html">Home</a> |
+      <a href="services.html" aria-current="page">Services</a> |
+      <a href="resources.html">Resources</a> |
+      <a href="appointments.html">Appointments</a> |
+      <a href="contact_us.html">Get in Touch</a> |
+      <a href="about_us.html">About Us</a>
+    </nav>
+    <form class="subscription-box" onsubmit="subscribe(event)" aria-label="Newsletter subscription">
+      <label for="subscribeEmail">Subscribe to receive exclusive perks:</label>
+      <input type="email" id="subscribeEmail" name="subscribeEmail" placeholder="Enter your email" required aria-required="true">
+      <button type="submit">Subscribe</button>
+    </form>
+    <div id="subscriptionMessage" class="subscription-message" role="status" aria-live="polite"></div>
+  </footer>
+
+  <script>
+    function subscribe(event) {
+      event.preventDefault();
+      const email = document.getElementById('subscribeEmail').value;
+      const messageDiv = document.getElementById('subscriptionMessage');
+      
+      if (email && email.includes('@')) {
+        messageDiv.textContent = 'Thank you for subscribing! Check your email for exclusive perks.';
+        messageDiv.style.color = '#28a745';
+        document.getElementById('subscribeEmail').value = '';
+      } else {
+        messageDiv.textContent = 'Please enter a valid email address.';
+        messageDiv.style.color = '#cc0000';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - JPs Garage</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      line-height: 1.6;
+      width: 100%;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -2.5em;
+      left: 0.375em;
+      background: #000;
+      color: white;
+      padding: 0.5em;
+      z-index: 100;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 0; }
+
+    header, footer {
+      background-color: #d9d9d9;
+      padding: 1.25em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      color: #cc0000;
+      margin: 0;
+    }
+
+    header h1 img {
+      border: 0.1875em solid #cc0000;
+      border-radius: 0.5em;
+      padding: 0.3125em;
+      max-width: 100%;
+      height: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 0.9375em;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    header a, footer a {
+      color: #183bf0;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.3125em 0.625em;
+      border-radius: 0.25em;
+      transition: all 0.3s ease;
+    }
+
+    header a:hover, footer a:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    header a:focus, footer a:focus {
+      background-color: #000;
+      color: #fff;
+      outline: 0.125em solid #183bf0;
+      outline-offset: 0.125em;
+    }
+
+    main {
+      padding: 3.75em 1.25em;
+      max-width: 62.5em;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 3.125em;
+    }
+
+    .page-title h2 {
+      color: #183bf0;
+      font-size: 2.25em;
+      margin: 0 0 0.625em 0;
+    }
+
+    .page-title p {
+      color: #666;
+      font-size: 1em;
+      margin: 0;
+    }
+
+    .content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5em;
+      align-items: start;
+    }
+
+    .contact-card {
+      background-color: white;
+      padding: 2.5em;
+      border-radius: 0.625em;
+      box-shadow: 0 0.125em 0.625em rgba(0,0,0,0.1);
+    }
+
+    .contact-card h3 {
+      color: #183bf0;
+      margin-top: 0;
+      margin-bottom: 1.5625em;
+      font-size: 1.5em;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25em;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 0.5em;
+      color: #333;
+      font-size: 0.875em;
+    }
+
+    input, textarea {
+      padding: 0.75em;
+      border: 0.125em solid #e0e0e0;
+      border-radius: 0.3125em;
+      font-size: 0.9375em;
+      font-family: Arial, sans-serif;
+      transition: border-color 0.3s ease;
+      width: 100%;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #183bf0;
+      box-shadow: 0 0 0 0.125em rgba(24, 59, 240, 0.2);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 7.5em;
+    }
+
+    button {
+      background-color: #183bf0;
+      color: white;
+      border: none;
+      padding: 0.9375em;
+      border-radius: 0.3125em;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 0.625em;
+    }
+
+    button:hover, button:focus {
+      background-color: #000000;
+    }
+
+    button:focus {
+      outline: 0.125em solid #183bf0;
+      outline-offset: 0.125em;
+    }
+
+    .info-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25em;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: start;
+      gap: 0.9375em;
+      padding: 1.25em;
+      background-color: #f9f9f9;
+      border-radius: 0.5em;
+      border-left: 0.25em solid #183bf0;
+    }
+
+    .info-icon {
+      font-size: 1.5em;
+      color: #183bf0;
+      min-width: 1.875em;
+      font-weight: bold;
+    }
+
+    .info-content h4 {
+      margin: 0 0 0.3125em 0;
+      color: #183bf0;
+      font-size: 1em;
+    }
+
+    .info-content p {
+      margin: 0;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .info-content address {
+      font-style: normal;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .info-content a {
+      color: #183bf0;
+      text-decoration: none;
+    }
+
+    .info-content a:hover, .info-content a:focus {
+      text-decoration: underline;
+    }
+
+    .hours-section {
+      background-color: white;
+      padding: 1.5625em;
+      border-radius: 0.5em;
+      box-shadow: 0 0.125em 0.625em rgba(0,0,0,0.1);
+    }
+
+    .hours-section h4 {
+      color: #183bf0;
+      margin-top: 0;
+      margin-bottom: 0.9375em;
+    }
+
+    .hours-section p {
+      margin: 0.5em 0;
+      color: #666;
+    }
+
+    footer {
+      background-color: #d9d9d9;
+      text-align: center;
+      justify-content: center;
+      margin-top: 3.75em;
+      padding: 1.25em;
+      flex-direction: column;
+      gap: 0.625em;
+      width: 100%;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.3125em;
+      flex-wrap: wrap;
+    }
+
+    .subscription-box {
+      margin-top: 0.9375em;
+      padding: 0.9375em;
+      background-color: #f0f0f0;
+      border-radius: 0.3125em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.625em;
+      flex-wrap: wrap;
+    }
+
+    .subscription-box label {
+      margin: 0;
+      font-size: 0.875em;
+    }
+
+    .subscription-box input {
+      padding: 0.5em 0.75em;
+      border: 0.125em solid #ddd;
+      border-radius: 0.25em;
+      font-size: 0.875em;
+      width: 15.625em;
+      max-width: 100%;
+    }
+
+    .subscription-box button {
+      padding: 0.5em 1.25em;
+      background-color: #183bf0;
+      color: white;
+      border: none;
+      border-radius: 0.25em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 0;
+      font-size: 0.875em;
+    }
+
+    .subscription-box button:hover, .subscription-box button:focus {
+      background-color: #000000;
+    }
+
+    .subscription-box button:focus {
+      outline: 0.125em solid #183bf0;
+      outline-offset: 0.125em;
+    }
+
+    .subscription-message {
+      margin-top: 0.625em;
+      font-size: 0.875em;
+      color: #cc0000;
+      font-weight: bold;
+    }
+
+    footer a {
+      color: #183bf0;
+      margin: 0 0.3125em;
+    }
+
+    .required-text {
+      font-size: 0.6875em;
+      color: #ff0000;
+      margin: 0.3125em 0 0 0;
+      text-align: left;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 0.0625em;
+      height: 0.0625em;
+      padding: 0;
+      margin: -0.0625em;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 48em) {
+      .content-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding: 2.5em 1em;
+      }
+
+      .contact-card {
+        padding: 1.5em;
+      }
+
+      .page-title h2 {
+        font-size: 1.875em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header role="banner">
+    <h1>
+      <img 
+        src="images/JPs Garage logo.png" 
+        height="100" 
+        width="100" 
+        alt="JPs Garage logo"
+      >
+    </h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+        <li><a href="contact_us.html" aria-current="page">Get in Touch</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="page-title">
+      <h2 id="contact-form-title">Get in Touch</h2>
+      <p>We're here to help with all your automotive needs</p>
+    </div>
+
+    <div class="content-wrapper">
+      <section class="contact-card" aria-labelledby="send-message-heading">
+        <h3 id="send-message-heading">Send Us a Message</h3>
+        <form action="#" method="post" id="contact-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="John Smith" minlength="2" maxlength="50" required>
+            <div class="required-text">* Required</div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" minlength="5" maxlength="100" required>
+            <div class="required-text">* Required</div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" aria-describedby="phone-optional">
+            <div id="phone-optional" class="required-text" style="color: #666;">Optional</div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Tell us how we can help you..." minlength="10" maxlength="500" required></textarea>
+            <div class="required-text">* Required</div>
+          </div>
+
+          <button type="submit">Send Message</button>
+          <div id="form-status" role="status" aria-live="polite" style="margin-top: 0.625em;"></div>
+        </form>
+      </section>
+
+      <div class="info-section">
+        <section class="contact-card" aria-labelledby="contact-info-heading">
+          <h3 id="contact-info-heading">Contact Information</h3>
+          
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">📍</div>
+            <div class="info-content">
+              <h4>Visit Us</h4>
+              <address>
+                987 Main Street<br>
+                City, State, ZIP
+              </address>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">📞</div>
+            <div class="info-content">
+              <h4>Call Us</h4>
+              <p><a href="tel:+11234567890">(123) 456-7890</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">✉️</div>
+            <div class="info-content">
+              <h4>Email Us</h4>
+              <p><a href="mailto:info@jpsgarage.com">info@jpsgarage.com</a></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="hours-section" aria-labelledby="hours-heading">
+          <h4 id="hours-heading">Business Hours</h4>
+          <p><strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM</p>
+          <p><strong>Saturday:</strong> 9:00 AM - 4:00 PM</p>
+          <p><strong>Sunday:</strong> Closed</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <nav aria-label="Footer navigation" class="footer-links">
+      <a href="index.html">Home</a> |
+      <a href="services.html">Services</a> |
+      <a href="resources.html">Resources</a> |
+      <a href="appointments.html">Appointments</a> |
+      <a href="contact_us.html" aria-current="page">Get in Touch</a> |
+      <a href="about_us.html">About Us</a>
+    </nav>
+    <form class="subscription-box" onsubmit="subscribe(event)" aria-label="Newsletter subscription">
+      <label for="subscribeEmail">Subscribe to receive exclusive perks:</label>
+      <input type="email" id="subscribeEmail" name="subscribeEmail" placeholder="Enter your email" required aria-required="true">
+      <button type="submit">Subscribe</button>
+    </form>
+    <div id="subscriptionMessage" class="subscription-message" role="status" aria-live="polite"></div>
+  </footer>
+
+  <script>
+    // Contact Form Handler
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (name && email && message) {
+        status.style.color = '#28a745';
+        status.textContent = 'Thank you! Your message has been sent. We will contact you within 24 hours.';
+        form.reset();
+      } else {
+        status.style.color = '#ff0000';
+        status.textContent = 'Please fill in all required fields.';
+      }
+    });
+
+    // Subscription Handler
+    function subscribe(event) {
+      event.preventDefault();
+      const email = document.getElementById('subscribeEmail').value;
+      const messageDiv = document.getElementById('subscriptionMessage');
+      
+      if (email && email.includes('@')) {
+        messageDiv.textContent = 'Thank you for subscribing! Check your email for exclusive perks.';
+        messageDiv.style.color = '#28a745';
+        document.getElementById('subscribeEmail').value = '';
+      } else {
+        messageDiv.textContent = 'Please enter a valid email address.';
+        messageDiv.style.color = '#cc0000';
+      }
+    }
+  </script>
+</body>
+</html>

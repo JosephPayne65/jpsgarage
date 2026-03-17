@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Schedule Auto Service - JP's Garage Aurora</title>
+<meta name="description" content="Schedule auto service online at JP's Garage. Easy car repair appointment booking with flexible time slots in Aurora, IL.">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      width: 100%;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -2.5em;
+      left: 0.375em;
+      background: #000;
+      color: white;
+      padding: 0.5em;
+      z-index: 100;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 0; }
+
+    header, footer {
+      background-color: #d9d9d9;
+      padding: 1.25em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      color: #cc0000;
+      margin: 0;
+    }
+
+    header h1 img {
+      border: 0.1875em solid #cc0000;
+      border-radius: 0.5em;
+      padding: 0.3125em;
+      max-width: 100%;
+      height: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 0.9375em;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    header a, footer a {
+      color: #183bf0;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.3125em 0.625em;
+      border-radius: 0.25em;
+      transition: all 0.3s ease;
+    }
+
+    header a:hover, footer a:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    header a:focus, footer a:focus {
+      background-color: #000000;
+      color: #ffffff;
+      outline: 0.125em solid #183bf0;
+      outline-offset: 0.125em;
+    }
+
+    main {
+      padding: 2.5em 1.25em;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.875em;
+      align-items: start;
+      max-width: 75em;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .form-placeholder {
+      background-color: #f9f9f9;
+      border: 0.125em solid #ddd;
+      padding: 1.875em;
+      border-radius: 0.5em;
+      text-align: center;
+    }
+
+    .form-placeholder h2 {
+      margin-top: 0;
+      font-size: 1.375em;
+      margin-bottom: 0.625em;
+    }
+
+    .form-placeholder p {
+      font-size: 0.875em;
+      margin-bottom: 1.25em;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 2.5em;
+      background-color: #ffffff;
+      margin: 0.625em 0;
+      border-radius: 0.3125em;
+      border: 0.125em solid #ddd;
+      padding: 0 0.625em;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+
+    .form-input:focus, .fake-dropdown:focus {
+      outline: none;
+      border-color: #183bf0;
+      box-shadow: 0 0 0 0.125em rgba(24, 59, 240, 0.2);
+    }
+
+    .fake-dropdown {
+      width: 100%;
+      height: 2.5em;
+      background-color: #e0e0e0;
+      margin: 0.625em 0;
+      border-radius: 0.3125em;
+      border: 0.0625em solid #ccc;
+      font-size: 0.875em;
+      padding: 0 0.625em;
+      color: #666;
+    }
+
+    .fake-button {
+      width: 100%;
+      height: 2.5em;
+      background-color: #183bf0;
+      color: white;
+      line-height: 2.5em;
+      border-radius: 0.3125em;
+      margin-top: 0.625em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border: none;
+      font-size: 1em;
+    }
+
+    .fake-button:hover, .fake-button:focus {
+      background-color: #000000;
+    }
+
+    .fake-button:focus {
+      outline: 0.125em solid #183bf0;
+      outline-offset: 0.125em;
+    }
+
+    .form-placeholder h6 {
+      color: #183bf0;
+      cursor: pointer;
+      margin-top: 0.9375em;
+      margin-bottom: 0;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .form-placeholder h6:hover, .form-placeholder h6:focus {
+      color: #000000;
+    }
+
+    .appointment-image {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5em;
+      box-shadow: 0 0.125em 0.625em rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background-color: #d9d9d9;
+      text-align: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.625em;
+      padding: 1.25em;
+      width: 100%;
+      margin-top: 2.5em;
+    }
+
+    footer a {
+      color: #183bf0;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 0.3125em;
+      flex-wrap: wrap;
+    }
+
+    .subscription-box {
+      margin-top: 0.9375em;
+      padding: 0.9375em;
+      background-color: #f0f0f0;
+      border-radius: 0.3125em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.625em;
+      flex-wrap: wrap;
+    }
+
+    .subscription-box label {
+      margin: 0;
+      font-size: 0.875em;
+    }
+
+    .subscription-box input {
+      padding: 0.5em 0.75em;
+      border: 0.125em solid #ddd;
+      border-radius: 0.25em;
+      font-size: 0.875em;
+      width: 15.625em;
+      max-width: 100%;
+    }
+
+    .subscription-box button {
+      padding: 0.5em 1.25em;
+      background-color: #183bf0;
+      color: white;
+      border: none;
+      border-radius: 0.25em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 0.875em;
+    }
+
+    .subscription-box button:hover, .subscription-box button:focus {
+      background-color: #000000;
+    }
+
+    .subscription-box button:focus {
+      outline: 0.125em solid #183bf0;
+      outline-offset: 0.125em;
+    }
+
+    .subscription-message {
+      margin-top: 0.625em;
+      font-size: 0.875em;
+      color: #cc0000;
+      font-weight: bold;
+    }
+
+    .required-text {
+      font-size: 0.6875em;
+      color: #ff0000;
+      margin: -0.3125em 0 0.625em 0;
+      text-align: left;
+      padding-left: 0;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 0.0625em;
+      height: 0.0625em;
+      padding: 0;
+      margin: -0.0625em;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 48em) {
+      main {
+        grid-template-columns: 1fr;
+        padding: 1.875em 1em;
+      }
+
+      .form-placeholder {
+        padding: 1.25em;
+      }
+
+      .subscription-box {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .subscription-box input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header role="banner">
+    <h1>
+  <img src="images/JPs Garage logo.png" height="100" width="100" alt="JP's Garage - Schedule auto service and car repair appointment">
+  <span class="sr-only">Schedule Auto Service at JP's Garage</span>
+</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="appointments.html" aria-current="page">Appointments</a></li>
+        <li><a href="contact_us.html">Get in Touch</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="form-placeholder" aria-labelledby="appointment-heading">
+	<div style="margin-bottom: 1.5em; text-align: left;">
+  <p style="color: #555; font-size: 1em; line-height: 1.6; margin-bottom: 1em;">
+    Ready to schedule auto service for your vehicle? At JP's Garage, we make booking your car repair appointment quick and convenient with our online booking system. Simply log in or create an account to access available time slots and secure your preferred service date.
+  </p>
+</div>
+      <h2 id="appointment-heading">Schedule Auto Service Online</h2>
+      <p>Log in to complete your car repair appointment booking</p>
+      <form action="#" method="post" id="appointment-form">
+        <label for="fullname" class="sr-only">Full Name</label>
+        <input type="text" id="fullname" name="fullname" class="form-input" placeholder="Full Name" minlength="2" maxlength="50" required aria-required="true">
+        <div class="required-text">* Required</div>
+
+        <label for="email" class="sr-only">Email Address</label>
+        <input type="email" id="email" name="email" class="form-input" placeholder="Email Address" minlength="5" maxlength="100" required aria-required="true">
+        <div class="required-text">* Required</div>
+
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" id="password" name="password" class="form-input" placeholder="Password" required aria-required="true">
+        <div class="required-text">* Required</div>
+
+        <label for="service" class="sr-only">How Can We Help</label>
+        <select id="service" name="service" class="fake-dropdown" required aria-required="true">
+          <option value="">How Can We Help</option>
+          <option value="oil-change">Oil Change</option>
+          <option value="brake-service">Brake Service</option>
+          <option value="tire-rotation">Tire Rotation</option>
+          <option value="engine-diagnostic">Engine Diagnostic</option>
+          <option value="transmission-service">Transmission Service</option>
+          <option value="air-conditioning">Air Conditioning Service</option>
+          <option value="battery-replacement">Battery Replacement</option>
+          <option value="general-inspection">General Inspection</option>
+        </select>
+        <div class="required-text">* Required</div>
+
+        <label for="timeslot" class="sr-only">Select Available Time Slot</label>
+        <select id="timeslot" name="timeslot" class="fake-dropdown" required aria-required="true">
+          <option value="">Select Available Time Slot</option>
+          <option value="8am">8:00 AM</option>
+          <option value="9am">9:00 AM</option>
+          <option value="10am">10:00 AM</option>
+          <option value="11am">11:00 AM</option>
+          <option value="1pm">1:00 PM</option>
+          <option value="2pm">2:00 PM</option>
+          <option value="3pm">3:00 PM</option>
+          <option value="4pm">4:00 PM</option>
+        </select>
+        <div class="required-text">* Required</div>
+
+        <label for="appointmentdate" class="sr-only">Select Appointment Date</label>
+        <input type="date" id="appointmentdate" name="appointmentdate" class="form-input" required aria-required="true">
+        <div class="required-text">* Required</div>
+
+        <button type="submit" class="fake-button">Log In</button>
+        <div id="form-status" role="status" aria-live="polite" style="margin-top: 0.625em;"></div>
+      </form>
+      <a href="#" class="form-placeholder-link"><h6 tabindex="0">Create Account for Easy Online Booking</h6></a>
+    </section>
+
+   <img src="images/appointment.jpg" alt="Online booking calendar to schedule auto service at JP's Garage" class="appointment-image">
+   <section style="grid-column: 1 / -1; margin-top: 2em; padding: 2em; background-color: #f9f9f9; border-radius: 0.5em;">
+  <h3 style="color: #183bf0; text-align: center; margin-bottom: 1em;">Why Choose Our Online Booking System?</h3>
+  <p style="max-width: 50em; margin: 1em auto; color: #555; line-height: 1.8;">
+    Our convenient online booking platform makes it easy to schedule auto service at a time that works for you. No more phone tag or waiting on hold. Simply select your service, choose your preferred time slot, and confirm your car repair appointment in minutes. We offer flexible scheduling throughout the week to accommodate your busy lifestyle.
+  </p>
+  <p style="max-width: 50em; margin: 1em auto; color: #555; line-height: 1.8;">
+    When you schedule auto service with JP's Garage, you're choosing quality workmanship and transparent communication. Our certified technicians are ready to handle everything from routine maintenance to complex repairs. Your car repair appointment includes a thorough inspection and honest assessment of your vehicle's needs.
+  </p>
+  
+  <h3 style="color: #cc0000; text-align: center; margin: 1.5em 0 1em;">What to Expect When You Schedule Auto Service</h3>
+  <p style="max-width: 50em; margin: 1em auto; color: #555; line-height: 1.8;">
+    After booking your car repair appointment through our online booking system, you'll receive confirmation via email with all the details. We'll remind you before your scheduled service date, and our team will be ready to provide expert care when you arrive. Experience the convenience of modern automotive service schedule auto service with JP's Garage today and discover why our customers trust us with their vehicles.
+  </p>
+</section>
+  </main>
+
+  <footer role="contentinfo">
+    <nav aria-label="Footer navigation" class="footer-links">
+      <a href="index.html">Home</a> |
+      <a href="services.html">Services</a> |
+      <a href="resources.html">Resources</a> |
+      <a href="appointments.html" aria-current="page">Appointments</a> |
+      <a href="contact_us.html">Get in Touch</a> |
+      <a href="about_us.html">About Us</a>
+    </nav>
+    <form class="subscription-box" onsubmit="subscribe(event)" aria-label="Newsletter subscription">
+      <label for="subscribeEmail">Subscribe to receive exclusive perks:</label>
+      <input type="email" id="subscribeEmail" name="subscribeEmail" placeholder="Enter your email" required aria-required="true">
+      <button type="submit">Subscribe</button>
+    </form>
+    <div id="subscriptionMessage" class="subscription-message" role="status" aria-live="polite"></div>
+  </footer>
+
+  <script>
+    // Appointment Form Handler
+    const form = document.getElementById('appointment-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = form.fullname.value.trim();
+      const email = form.email.value.trim();
+      const service = form.service.value;
+      const timeslot = form.timeslot.value;
+      const date = form.appointmentdate.value;
+
+      if (name && email && service && timeslot && date) {
+        status.style.color = '#28a745';
+        status.textContent = 'Thank you! Your appointment has been scheduled. We will contact you shortly.';
+        form.reset();
+      } else {
+        status.style.color = '#ff0000';
+        status.textContent = 'Please fill in all required fields.';
+      }
+    });
+
+    // Subscription Handler
+    function subscribe(event) {
+      event.preventDefault();
+      const email = document.getElementById('subscribeEmail').value;
+      const messageDiv = document.getElementById('subscriptionMessage');
+      
+      if (email && email.includes('@')) {
+        messageDiv.textContent = 'Thank you for subscribing! Check your email for exclusive perks.';
+        messageDiv.style.color = '#28a745';
+        document.getElementById('subscribeEmail').value = '';
+      } else {
+        messageDiv.textContent = 'Please enter a valid email address.';
+        messageDiv.style.color = '#cc0000';
+      }
+    }
+  </script>
+</body>
+</html>

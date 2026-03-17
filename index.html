@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JP's Garage - Auto Repair Services Aurora IL</title>
+<meta name="description" content="Expert auto repair services at JP's Garage in Aurora. Trusted automotive maintenance and diagnostics for all vehicles.">
+  <style>
+  * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  width: 100%;
+}
+
+.skip-link {
+  position: absolute;
+  top: -2.5em;
+  left: 0.375em;
+  background: #000;
+  color: white;
+  padding: 0.5em;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+header,
+footer {
+  background-color: #d9d9d9;
+  color: #183bf0;
+  padding: 1.25em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: #cc0000;
+  margin: 0;
+}
+
+header h1 img {
+  border: 0.1875em solid #cc0000;
+  border-radius: 0.5em;
+  padding: 0.3125em;
+  max-width: 100%;
+  height: auto;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.9375em;
+}
+
+nav ul li {
+  display: inline;
+}
+
+header a,
+footer a {
+  color: #183bf0;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.3125em 0.625em;
+  border-radius: 0.25em;
+  transition: all 0.3s ease;
+}
+
+header a:hover,
+footer a:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+header a:focus,
+footer a:focus {
+  outline: 0.125em solid #183bf0;
+  outline-offset: 0.125em;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+main {
+  padding: 2.5em 1.25em;
+  min-height: 25em;
+  max-width: 75em;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.welcome-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.875em;
+}
+
+.welcome-text {
+  flex: 1;
+}
+
+.welcome-text h2 {
+  color: #183bf0;
+  font-size: 2em;
+  margin-top: 0;
+}
+
+.welcome-text p {
+  font-size: 1em;
+  color: #555;
+  margin: 1em 0;
+}
+
+.welcome-text a {
+  color: #183bf0;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.welcome-text a:hover,
+.welcome-text a:focus {
+  color: #cc0000;
+}
+
+.header-photo {
+  width: 50em;
+  max-width: 100%;
+  height: 37.5em;
+  border-radius: 0.5em;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 0.25em 0.9375em rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  text-align: center;
+  justify-content: center;
+  background-color: #d9d9d9;
+  padding: 1.25em;
+  flex-direction: column;
+  gap: 0.625em;
+  width: 100%;
+  margin-top: 2.5em;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.3125em;
+  flex-wrap: wrap;
+}
+
+.subscription-box {
+  margin-top: 0.9375em;
+  padding: 0.9375em;
+  background-color: #f0f0f0;
+  border-radius: 0.3125em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625em;
+  flex-wrap: wrap;
+}
+
+.subscription-box label {
+  margin: 0;
+  font-size: 0.875em;
+}
+
+.subscription-box input {
+  padding: 0.5em 0.75em;
+  border: 0.125em solid #ddd;
+  border-radius: 0.25em;
+  font-size: 0.875em;
+  width: 15.625em;
+  max-width: 100%;
+}
+
+.subscription-box button {
+  padding: 0.5em 1.25em;
+  background-color: #183bf0;
+  color: white;
+  border: none;
+  border-radius: 0.25em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.875em;
+}
+
+.subscription-box button:hover,
+.subscription-box button:focus {
+  background-color: #000000;
+}
+
+.subscription-box button:focus {
+  outline: 0.125em solid #183bf0;
+  outline-offset: 0.125em;
+}
+
+.subscription-message {
+  margin-top: 0.625em;
+  font-size: 0.875em;
+  color: #cc0000;
+  font-weight: bold;
+}
+
+footer a {
+  color: #183bf0;
+  margin: 0 0.3125em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 0.0625em;
+  height: 0.0625em;
+  padding: 0;
+  margin: -0.0625em;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-contrast: more) {
+  header,
+  footer {
+    background-color: #f0f0f0;
+  }
+
+  header a,
+  footer a {
+    border: 0.0625em solid #183bf0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 60em) {
+  .welcome-section {
+    flex-direction: column;
+  }
+
+  .header-photo {
+    width: 100%;
+    height: 25em;
+  }
+
+  .welcome-text h2 {
+    font-size: 1.75em;
+  }
+}
+
+@media (max-width: 48em) {
+  main {
+    padding: 1.875em 1em;
+  }
+
+  .welcome-text h2 {
+    font-size: 1.5em;
+  }
+
+  .header-photo {
+    height: 18.75em;
+  }
+
+  .subscription-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .subscription-box input {
+    width: 100%;
+  }
+}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header role="banner">
+    <h1>
+  <img 
+    src="images/JPs Garage logo.png" 
+    height="100" 
+    width="100" 
+    alt="JP's Garage - Professional auto repair services logo"
+  >
+  <span class="sr-only">JP's Garage Auto Repair Services</span>
+</h1>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+        <li><a href="contact_us.html">Get in Touch</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="welcome-section">
+      <article class="welcome-text">
+        <h2>Welcome to JP's Garage, Your Trusted Auto Repair Services Provider</h2>
+        <p><strong>Where Your Vehicle Gets the Care It Deserves</strong></p>
+        <p>At JP's Garage, we understand that your vehicle is more than just a way to get from point A to point B it's your daily companion, your family's safety, and your peace of mind on the road. That's why we're committed to providing premium auto repair services and automotive maintenance that you can trust.</p>
+		<h3>Comprehensive Automotive Maintenance Solutions</h3>
+        <p>Our comprehensive automotive maintenance programs are designed to extend your vehicle's lifespan and prevent costly repairs down the road. We believe preventive care is the key to reliable transportation.</p>
+        <p>As your trusted mechanic partner, we use state-of-the-art diagnostic equipment and genuine parts to ensure every repair meets manufacturer specifications. Our commitment to excellence means you can count on us for honest assessments and transparent pricing.</p>
+       <p>Ready to experience the JP's Garage difference? <a href="appointments.html">Schedule your auto repair services appointment today</a> and discover what premium automotive maintenance and trusted mechanic care really means.</p>
+      </article>
+
+      <img 
+        src="images/car shop.jpg" 
+        alt="Professional auto repair services facility at JP's Garage with modern diagnostic equipment"
+        class="header-photo"
+      >
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <nav aria-label="Footer navigation" class="footer-links">
+      <a href="index.html" aria-current="page">Home</a> |
+      <a href="services.html">Services</a> |
+      <a href="resources.html">Resources</a> |
+      <a href="appointments.html">Appointments</a> |
+      <a href="contact_us.html">Get in Touch</a> |
+      <a href="about_us.html">About Us</a>
+    </nav>
+    <form class="subscription-box" onsubmit="subscribe(event)" aria-label="Newsletter subscription">
+      <label for="subscribeEmail">Subscribe to receive exclusive perks:</label>
+      <input type="email" id="subscribeEmail" name="subscribeEmail" placeholder="Enter your email" required aria-required="true">
+      <button type="submit">Subscribe</button>
+    </form>
+    <div id="subscriptionMessage" class="subscription-message" role="status" aria-live="polite"></div>
+  </footer>
+
+  <script>
+    function subscribe(event) {
+      event.preventDefault();
+      const email = document.getElementById('subscribeEmail').value;
+      const messageDiv = document.getElementById('subscriptionMessage');
+      
+      if (email && email.includes('@')) {
+        messageDiv.textContent = 'Thank you for subscribing! Check your email for exclusive perks.';
+        messageDiv.style.color = '#28a745';
+        document.getElementById('subscribeEmail').value = '';
+      } else {
+        messageDiv.textContent = 'Please enter a valid email address.';
+        messageDiv.style.color = '#cc0000';
+      }
+    }
+  </script>
+</body>
+</html>
