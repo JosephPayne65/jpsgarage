@@ -3,391 +3,203 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vehicle Maintenance Tips - JP's Garage</title>
-<meta name="description" content="Expert vehicle maintenance tips and car care guide from JP's Garage. Learn tire maintenance, washing techniques, and EV care.">
-  <style>
-    * {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  width: 100%;
-}
-
-.skip-link {
-  position: absolute;
-  top: -2.5em;
-  left: 0.375em;
-  background: #000;
-  color: white;
-  padding: 0.5em;
-  z-index: 100;
-  text-decoration: none;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-header,
-footer {
-  background-color: #d9d9d9;
-  padding: 1.25em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header h1 {
-  color: #cc0000;
-  margin: 0;
-}
-
-header h1 img {
-  border: 0.1875em solid #cc0000;
-  border-radius: 0.5em;
-  padding: 0.3125em;
-  max-width: 100%;
-  height: auto;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 0.9375em;
-}
-
-nav ul li {
-  display: inline;
-}
-
-header a,
-footer a {
-  color: #183bf0;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0.3125em 0.625em;
-  border-radius: 0.25em;
-  transition: all 0.3s ease;
-}
-
-header a:hover,
-footer a:hover {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-header a:focus,
-footer a:focus {
-  outline: 0.125em solid #183bf0;
-  outline-offset: 0.125em;
-  background-color: #000000;
-  color: #ffffff;
-}
-
-main {
-  padding: 2.5em 1.25em;
-  max-width: 75em;
-  margin: 0 auto;
-  width: 100%;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 2.5em;
-  color: #183bf0;
-  font-size: 2.25em;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15.625em, 1fr));
-  gap: 1.875em;
-}
-
-.service-card {
-  background-color: #f9f9f9;
-  border: 0.125em solid #ddd;
-  border-radius: 0.5em;
-  padding: 1.25em;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.service-card:hover,
-.service-card:focus-within {
-  transform: translateY(-0.3125em);
-  box-shadow: 0 0.25em 0.9375em rgba(0, 0, 0, 0.15);
-}
-
-.service-card img {
-  width: 100%;
-  max-width: 100%;
-  height: 11.25em;
-  border-radius: 0.5em;
-  margin-bottom: 0.9375em;
-  display: block;
-  object-fit: cover;
-}
-
-.service-card h3 {
-  margin: 0.625em 0;
-  color: #cc0000;
-  font-size: 1.25em;
-}
-
-.service-card p {
-  color: #555;
-  font-size: 0.9375em;
-  margin: 0.625em 0;
-}
-
-footer {
-  background-color: #d9d9d9;
-  text-align: center;
-  justify-content: center;
-  margin-top: 2.5em;
-  padding: 1.25em;
-  flex-direction: column;
-  gap: 0.625em;
-  width: 100%;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 0.3125em;
-  flex-wrap: wrap;
-}
-
-.subscription-box {
-  margin-top: 0.9375em;
-  padding: 0.9375em;
-  background-color: #f0f0f0;
-  border-radius: 0.3125em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625em;
-  flex-wrap: wrap;
-}
-
-.subscription-box label {
-  margin: 0;
-  font-size: 0.875em;
-}
-
-.subscription-box input {
-  padding: 0.5em 0.75em;
-  border: 0.125em solid #ddd;
-  border-radius: 0.25em;
-  font-size: 0.875em;
-  width: 15.625em;
-  max-width: 100%;
-}
-
-.subscription-box button {
-  padding: 0.5em 1.25em;
-  background-color: #183bf0;
-  color: white;
-  border: none;
-  border-radius: 0.25em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 0.875em;
-}
-
-.subscription-box button:hover,
-.subscription-box button:focus {
-  background-color: #000000;
-}
-
-.subscription-box button:focus {
-  outline: 0.125em solid #183bf0;
-  outline-offset: 0.125em;
-}
-
-.subscription-message {
-  margin-top: 0.625em;
-  font-size: 0.875em;
-  color: #cc0000;
-  font-weight: bold;
-}
-
-footer a {
-  color: #183bf0;
-  margin: 0 0.3125em;
-}
-
-.sr-only {
-  position: absolute;
-  width: 0.0625em;
-  height: 0.0625em;
-  padding: 0;
-  margin: -0.0625em;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
-@media (prefers-contrast: more) {
-  header,
-  footer {
-    background-color: #f0f0f0;
-  }
-
-  header a,
-  footer a {
-    border: 0.0625em solid #183bf0;
-  }
-
-  .service-card {
-    border: 0.1875em solid #333;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  .service-card:hover,
-  .service-card:focus-within {
-    transform: none;
-  }
-}
-
-@media (max-width: 48em) {
-  main {
-    padding: 1.875em 1em;
-  }
-
-  h2 {
-    font-size: 1.875em;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .subscription-box {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .subscription-box input {
-    width: 100%;
-  }
-}
-  </style>
+  <title>Resources – JP's Garage | Aurora, IL</title>
+  <meta name="description" content="Helpful auto care tips, maintenance guides, and FAQs from JP's Garage in Aurora, IL.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header role="banner">
-    <h1>
-  <img 
-    src="images/JPs Garage logo.png" 
-    height="100" 
-    width="100" 
-    alt="JP's Garage vehicle maintenance tips and car care guide"
-  >
-  <span class="sr-only">JP's Garage Vehicle Maintenance Tips</span>
-</h1>
-    <nav aria-label="Main navigation">
+    <a href="index.html" class="logo-wrap" aria-label="JP's Garage – Home">
+      <img src="images/JPs Garage logo.png" width="56" height="56" alt="">
+      <div>
+        <div class="logo-text">JP's Garage</div>
+        <div class="logo-sub">Auto Repair · Aurora, IL</div>
+      </div>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="resources.html" aria-current="page">Resources</a></li>
-        <li><a href="appointments.html">Appointments</a></li>
-        <li><a href="contact_us.html">Get in Touch</a></li>
         <li><a href="about_us.html">About Us</a></li>
+        <li><a href="contact_us.html">Get in Touch</a></li>
+        <li><a href="appointments.html" class="nav-cta">Book Appointment</a></li>
       </ul>
     </nav>
+
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="resources.html" aria-current="page">Resources</a></li>
+      <li><a href="about_us.html">About Us</a></li>
+      <li><a href="contact_us.html">Get in Touch</a></li>
+      <li><a href="appointments.html" class="nav-cta">Book Appointment</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <h2>Resources</h2>
+    <p>Tips, guides, and answers to help you stay ahead of vehicle maintenance.</p>
+  </div>
+
   <main id="main-content">
-   <h2>Vehicle Maintenance Tips for Better Car Care</h2>
-   <p style="text-align: center; max-width: 55em; margin: 0 auto 2em; color: #555; font-size: 1.1em;">
-  Welcome to our comprehensive car care guide. At JP's Garage, we believe educated vehicle owners make better decisions about their automotive needs. Our vehicle maintenance tips help you understand proper car care, extend your vehicle's lifespan, and save money on preventable repairs.
-</p>
-    <div class="services-grid">
-  <article class="service-card">
-    <img src="images/car wash.jpg" alt="Person washing a car following proper car care guide techniques">
-    <h3>How to Wash Your Vehicle</h3>
-    <p>Learn the proper techniques to care for your vehicle's exterior. Our car care guide covers the best washing methods, products to use, and how to protect your paint finish. Regular washing prevents damage from dirt, salt, and environmental contaminants while maintaining your vehicle's appearance and resale value.</p>
-  </article>
 
-  <article class="service-card">
-    <img src="images/Tire_care.jpg" alt="Close-up of tire pressure gauge demonstrating tire maintenance">
-    <h3>Tire Maintenance and Pressure</h3>
-    <p>Understanding correct tire pressure is essential for safety and performance. Our tire maintenance guide explains how to check tire pressure, when to rotate tires, and signs of wear. Proper tire maintenance improves fuel efficiency, extends tire life, and ensures optimal handling in all driving conditions.</p>
-  </article>
+    <!-- Maintenance Tips -->
+    <section aria-labelledby="tips-title" style="margin-bottom:3em;">
+      <h2 class="section-title" id="tips-title">Maintenance <span>Tips</span></h2>
+      <hr class="section-divider">
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Check Your Oil Regularly</h3>
+          <p>Engine oil should be checked monthly and changed every 5,000–7,500 miles depending on your vehicle and oil type. Never ignore a low oil warning.</p>
+        </div>
+        <div class="card">
+          <h3>Monitor Tire Pressure</h3>
+          <p>Proper inflation improves fuel economy and safety. Check tire pressure at least monthly — especially when temperatures change significantly.</p>
+        </div>
+        <div class="card">
+          <h3>Replace Wiper Blades</h3>
+          <p>Wiper blades should be replaced every 6–12 months or when you notice streaking or skipping. Don't wait until a rainstorm to find out they've worn out.</p>
+        </div>
+        <div class="card">
+          <h3>Listen to Your Brakes</h3>
+          <p>Squealing or grinding brakes are a sign that pads or rotors need attention. Have them inspected immediately — brake health is a safety issue.</p>
+        </div>
+        <div class="card">
+          <h3>Keep Fluids Topped Off</h3>
+          <p>Coolant, brake fluid, power steering fluid, and windshield washer fluid all need to be maintained. Low fluid levels can cause significant damage.</p>
+        </div>
+        <div class="card">
+          <h3>Don't Ignore Warning Lights</h3>
+          <p>Your dashboard warning lights exist for a reason. A check engine light or oil pressure warning should be addressed quickly — not driven on for weeks.</p>
+        </div>
+      </div>
+    </section>
 
-  <article class="service-card">
-    <img src="images/EV_charge.jpg" alt="Electric vehicle charging station with cable connected">
-    <h3>Properly Charging Your EV</h3>
-    <p>Electric vehicle owners need specialized knowledge for optimal battery care. Learn essential vehicle maintenance tips for EVs, including proper charging techniques, battery health preservation, and maximizing your electric vehicle's range. Our guide helps you protect your investment and enjoy worry-free electric driving.</p>
-  </article>
-</div>
-<section style="margin-top: 3em; padding: 2em 1.5em; background-color: #f9f9f9; border-radius: 0.5em;">
-  <h3 style="color: #183bf0; text-align: center; margin-bottom: 1em;">Why Vehicle Maintenance Tips Matter</h3>
-  <p style="max-width: 50em; margin: 1em auto; color: #555; line-height: 1.8;">
-    Regular vehicle maintenance is the key to reliability and longevity. Our car care guide provides practical advice that any vehicle owner can follow. From basic tire maintenance to advanced diagnostics, these vehicle maintenance tips empower you to take control of your automotive care.
-  </p>
-  <p style="max-width: 50em; margin: 1em auto; color: #555; line-height: 1.8;">
-    While DIY maintenance is valuable, some tasks require professional expertise. When you need expert service beyond these vehicle maintenance tips, <a href="appointments.html" style="color: #183bf0; font-weight: bold; text-decoration: underline;">schedule an appointment</a> with our certified technicians who can provide comprehensive care for your vehicle.
-  </p>
-</section>
+    <!-- Maintenance Schedule -->
+    <section aria-labelledby="schedule-title" style="margin-bottom:3em;">
+      <h2 class="section-title" id="schedule-title">Suggested Maintenance <span>Schedule</span></h2>
+      <hr class="section-divider">
+      <div style="overflow-x:auto;">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th scope="col">Service</th>
+              <th scope="col">Frequency</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Oil &amp; Filter Change</td>
+              <td>Every 5,000–7,500 miles</td>
+              <td>Varies by oil type and vehicle</td>
+            </tr>
+            <tr>
+              <td>Tire Rotation</td>
+              <td>Every 5,000–7,500 miles</td>
+              <td>Extend tire life and ensure even wear</td>
+            </tr>
+            <tr>
+              <td>Brake Inspection</td>
+              <td>Every 12,000 miles</td>
+              <td>Or whenever you notice changes in braking</td>
+            </tr>
+            <tr>
+              <td>Air Filter Replacement</td>
+              <td>Every 15,000–30,000 miles</td>
+              <td>Check annually; sooner in dusty conditions</td>
+            </tr>
+            <tr>
+              <td>Tire Alignment</td>
+              <td>Every 12 months</td>
+              <td>Or after hitting a major pothole or curb</td>
+            </tr>
+            <tr>
+              <td>Coolant Flush</td>
+              <td>Every 30,000 miles</td>
+              <td>Prevents overheating and corrosion</td>
+            </tr>
+            <tr>
+              <td>Transmission Fluid</td>
+              <td>Every 30,000–60,000 miles</td>
+              <td>Check owner's manual for your vehicle</td>
+            </tr>
+            <tr>
+              <td>Spark Plugs</td>
+              <td>Every 30,000–100,000 miles</td>
+              <td>Depends on plug type (copper vs iridium)</td>
+            </tr>
+            <tr>
+              <td>Timing Belt</td>
+              <td>Every 60,000–100,000 miles</td>
+              <td>Critical — failure can destroy an engine</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-<section style="margin-top: 2em; padding: 1.5em; background-color: #fff; border: 0.125em solid #ddd; border-radius: 0.5em;">
-  <h3 style="color: #cc0000; text-align: center; margin-bottom: 1em;">Essential Car Care Guide Topics</h3>
-  <p style="max-width: 50em; margin: 1em auto; color: #555; line-height: 1.8;">
-    Our comprehensive resources cover everything from seasonal tire maintenance to understanding dashboard warning lights. Whether you drive a conventional vehicle or an electric car, these vehicle maintenance tips help you stay informed and proactive about your vehicle's health. Knowledge is power when it comes to automotive care, and we're here to share our expertise with you.
-  </p>
-</section>
+    <!-- FAQ -->
+    <section aria-labelledby="faq-title" style="margin-bottom:3em;">
+      <h2 class="section-title" id="faq-title">Common <span>Questions</span></h2>
+      <hr class="section-divider">
+      <div class="cards-grid">
+        <div class="card">
+          <h3>How do I know if my brakes need replacing?</h3>
+          <p>Listen for squealing, grinding, or a pulsing feeling when you brake. If your pedal feels soft or you need extra distance to stop, come see us right away.</p>
+        </div>
+        <div class="card">
+          <h3>What does the check engine light mean?</h3>
+          <p>It can signal anything from a loose gas cap to a misfiring engine. We'll plug in a diagnostic scanner and tell you exactly what's triggering it.</p>
+        </div>
+        <div class="card">
+          <h3>How often should I really change my oil?</h3>
+          <p>The old "every 3,000 miles" rule is outdated for most modern vehicles. Most synthetic oils last 5,000–7,500 miles. Check your owner's manual or ask us.</p>
+        </div>
+        <div class="card">
+          <h3>Is it safe to drive with a tire pressure warning?</h3>
+          <p>A low tire is a safety risk. Pull over safely, check your pressure, and add air. If the light stays on after inflating, bring it in — you may have a slow leak.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer role="contentinfo">
-    <nav aria-label="Footer navigation" class="footer-links">
-      <a href="index.html">Home</a> |
-      <a href="services.html">Services</a> |
-      <a href="resources.html" aria-current="page">Resources</a> |
-      <a href="appointments.html">Appointments</a> |
-      <a href="contact_us.html">Get in Touch</a> |
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <span class="footer-divider" aria-hidden="true">|</span>
+      <a href="services.html">Services</a>
+      <span class="footer-divider" aria-hidden="true">|</span>
+      <a href="resources.html" aria-current="page">Resources</a>
+      <span class="footer-divider" aria-hidden="true">|</span>
+      <a href="appointments.html">Appointments</a>
+      <span class="footer-divider" aria-hidden="true">|</span>
+      <a href="contact_us.html">Get in Touch</a>
+      <span class="footer-divider" aria-hidden="true">|</span>
       <a href="about_us.html">About Us</a>
     </nav>
-    <form class="subscription-box" onsubmit="subscribe(event)" aria-label="Newsletter subscription">
-      <label for="subscribeEmail">Subscribe to receive exclusive perks:</label>
-      <input type="email" id="subscribeEmail" name="subscribeEmail" placeholder="Enter your email" required aria-required="true">
+
+    <form class="subscribe-box" onsubmit="subscribe(event)" aria-label="Newsletter subscription">
+      <label for="subscribeEmail">Get Exclusive Perks:</label>
+      <input type="email" id="subscribeEmail" name="subscribeEmail" placeholder="your@email.com" required aria-required="true">
       <button type="submit">Subscribe</button>
     </form>
-    <div id="subscriptionMessage" class="subscription-message" role="status" aria-live="polite"></div>
+    <div id="subscriptionMessage" class="subscribe-msg" role="status" aria-live="polite"></div>
+    <p class="footer-copy">&copy; 2025 JP's Garage · Aurora, IL · All Rights Reserved</p>
   </footer>
 
-  <script>
-    function subscribe(event) {
-      event.preventDefault();
-      const email = document.getElementById('subscribeEmail').value;
-      const messageDiv = document.getElementById('subscriptionMessage');
-      
-      if (email && email.includes('@')) {
-        messageDiv.textContent = 'Thank you for subscribing! Check your email for exclusive perks.';
-        messageDiv.style.color = '#28a745';
-        document.getElementById('subscribeEmail').value = '';
-      } else {
-        messageDiv.textContent = 'Please enter a valid email address.';
-        messageDiv.style.color = '#cc0000';
-      }
-    }
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
