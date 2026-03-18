@@ -3,482 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trusted Auto Repair Shop - JP's Garage Aurora</title>
-<meta name="description" content="Learn about our trusted auto repair shop with certified automotive technicians delivering quality car service in Aurora, IL since day one.">
-  <style>
-    * {
-  box-sizing: border-box;
-}
-
-:root {
-  --font-size-sm: 0.875em;
-  --font-size-base: 1em;
-  --font-size-lg: 1.125em;
-  --font-size-xl: 1.25em;
-  --font-size-2xl: 1.5em;
-  --font-size-3xl: 1.75em;
-  --font-size-4xl: 2.625em;
-  --primary-color: #183bf0;
-  --secondary-color: #cc0000;
-  --text-color: #555;
-  --text-light: #666;
-  --border-color: #ddd;
-  --bg-light: #f5f5f5;
-  --bg-lighter: #f0f0f0;
-  --bg-card: #d9d9d9;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: var(--bg-light);
-  width: 100%;
-  line-height: 1.6;
-}
-
-.skip-link {
-  position: absolute;
-  top: -2.5em;
-  left: 0.375em;
-  background: #000;
-  color: white;
-  padding: 0.5em;
-  z-index: 100;
-  text-decoration: none;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-header,
-footer {
-  background-color: var(--bg-card);
-  padding: 1.25em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header h1 {
-  color: var(--secondary-color);
-  margin: 0;
-}
-
-header h1 img {
-  border: 0.1875em solid var(--secondary-color);
-  border-radius: 0.5em;
-  padding: 0.3125em;
-  max-width: 100%;
-  height: auto;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 0.9375em;
-}
-
-nav ul li {
-  display: inline;
-}
-
-header a,
-footer a {
-  color: var(--primary-color);
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0.3125em 0.625em;
-  border-radius: 0.25em;
-  transition: all 0.3s ease;
-}
-
-header a:hover,
-footer a:hover {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-header a:focus,
-footer a:focus {
-  background-color: #000000;
-  color: #ffffff;
-  outline: 0.125em solid var(--primary-color);
-  outline-offset: 0.125em;
-}
-
-main {
-  padding: 3.75em 1.25em;
-  max-width: 75em;
-  margin: 0 auto;
-}
-
-.page-header {
-  text-align: center;
-  margin-bottom: 3.125em;
-}
-
-.page-header h2 {
-  color: var(--primary-color);
-  font-size: var(--font-size-4xl);
-  margin: 0 0 0.9375em 0;
-}
-
-.page-header p {
-  color: var(--text-light);
-  font-size: var(--font-size-lg);
-  margin: 0 auto;
-  max-width: 43.75em;
-  line-height: 1.6;
-}
-
-.content-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5em;
-  align-items: start;
-  margin-bottom: 3.125em;
-}
-
-.about-text {
-  background-color: white;
-  padding: 2.5em;
-  border-radius: 0.625em;
-  box-shadow: 0 0.125em 0.625em rgba(0, 0, 0, 0.1);
-}
-
-.about-text h3 {
-  color: var(--primary-color);
-  font-size: var(--font-size-2xl);
-  margin: 1.875em 0 0.9375em 0;
-  padding-bottom: 0.625em;
-  border-bottom: 0.1875em solid var(--primary-color);
-}
-
-.about-text h3:first-of-type {
-  margin-top: 0;
-}
-
-.about-text p {
-  color: var(--text-color);
-  line-height: 1.8;
-  font-size: var(--font-size-base);
-  margin: 0.9375em 0;
-}
-
-.image-container {
-  position: sticky;
-  top: 1.25em;
-}
-
-.image-container img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  border-radius: 0.625em;
-  box-shadow: 0 0.25em 0.9375em rgba(0, 0, 0, 0.2);
-}
-
-.values-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5625em;
-  margin-top: 3.125em;
-}
-
-.value-card {
-  background-color: white;
-  padding: 1.875em;
-  border-radius: 0.625em;
-  box-shadow: 0 0.125em 0.625em rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.value-card:hover {
-  transform: translateY(-0.3125em);
-  box-shadow: 0 0.25em 1.25em rgba(0, 0, 0, 0.15);
-}
-
-.value-card:focus-within {
-  transform: translateY(-0.3125em);
-  box-shadow: 0 0.25em 1.25em rgba(0, 0, 0, 0.15);
-  outline: 0.125em solid var(--primary-color);
-  outline-offset: 0.125em;
-}
-
-.value-icon {
-  font-size: 3em;
-  margin-bottom: 0.9375em;
-  font-weight: bold;
-}
-
-.value-card h4 {
-  color: var(--primary-color);
-  font-size: var(--font-size-xl);
-  margin: 0 0 0.625em 0;
-}
-
-.value-card p {
-  color: var(--text-light);
-  line-height: 1.6;
-  margin: 0;
-  font-size: var(--font-size-sm);
-}
-
-.closing-statement {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 2.5em;
-  border-radius: 0.625em;
-  text-align: center;
-  margin-top: 3.125em;
-}
-
-.closing-statement h3 {
-  margin: 0 0 0.9375em 0;
-  font-size: var(--font-size-3xl);
-}
-
-.closing-statement p {
-  margin: 0;
-  font-size: var(--font-size-lg);
-  line-height: 1.6;
-}
-
-footer {
-  background-color: var(--bg-card);
-  text-align: center;
-  justify-content: center;
-  margin-top: 3.75em;
-  padding: 1.25em;
-  flex-direction: row;
-  gap: 0;
-  width: 100%;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 0.3125em;
-}
-
-.subscription-box {
-  margin-top: 0.9375em;
-  padding: 0.9375em;
-  background-color: var(--bg-lighter);
-  border-radius: 0.3125em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625em;
-  flex-wrap: wrap;
-}
-
-.subscription-box label {
-  margin: 0;
-}
-
-.subscription-box input {
-  padding: 0.5em 0.75em;
-  border: 0.125em solid var(--border-color);
-  border-radius: 0.25em;
-  font-size: var(--font-size-sm);
-  width: 15.625em;
-  max-width: 100%;
-}
-
-.subscription-box button {
-  padding: 0.5em 1.25em;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 0.25em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.subscription-box button:hover,
-.subscription-box button:focus {
-  background-color: #000000;
-}
-
-.subscription-box button:focus {
-  outline: 0.125em solid var(--primary-color);
-  outline-offset: 0.125em;
-}
-
-.subscription-message {
-  margin-top: 0.625em;
-  font-size: var(--font-size-sm);
-  color: var(--secondary-color);
-  font-weight: bold;
-}
-
-footer a {
-  color: var(--primary-color);
-  margin: 0 0.3125em;
-}
-
-.sr-only {
-  position: absolute;
-  width: 0.0625em;
-  height: 0.0625em;
-  padding: 0;
-  margin: -0.0625em;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  .value-card:hover,
-  .value-card:focus-within {
-    transform: none;
-  }
-}
-
-@media (max-width: 60.5em) {
-  .content-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .image-container {
-    position: relative;
-    top: 0;
-  }
-
-  .values-section {
-    grid-template-columns: 1fr;
-  }
-}
-  </style>
+  <title>About Us – JP's Garage | Aurora, IL</title>
+  <meta name="description" content="Learn about JP's Garage — Aurora's trusted auto repair shop. Our story, values, and the team behind the work.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header role="banner">
-    <h1>
-  <img 
-    src="images/JPs Garage logo.png" 
-    height="100" 
-    width="100" 
-    alt="JP's Garage trusted auto repair shop with certified automotive technicians"
-  >
-  <span class="sr-only">JP's Garage Trusted Auto Repair Shop</span>
-</h1>
-    <nav aria-label="Main navigation">
+    <a href="index.html" class="logo-wrap" aria-label="JP's Garage – Home">
+      <img src="images/JPs Garage logo.png" width="56" height="56" alt="">
+      <div>
+        <div class="logo-text">JP's Garage</div>
+        <div class="logo-sub">Auto Repair · Aurora, IL</div>
+      </div>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="appointments.html">Appointments</a></li>
-        <li><a href="contact_us.html">Get in Touch</a></li>
         <li><a href="about_us.html" aria-current="page">About Us</a></li>
+        <li><a href="contact_us.html">Get in Touch</a></li>
+        <li><a href="appointments.html" class="nav-cta">Book Appointment</a></li>
       </ul>
     </nav>
+
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="about_us.html" aria-current="page">About Us</a></li>
+      <li><a href="contact_us.html">Get in Touch</a></li>
+      <li><a href="appointments.html" class="nav-cta">Book Appointment</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <h2>About JP's Garage</h2>
+    <p>Aurora's trusted neighborhood auto repair shop — built on honesty, skill, and community.</p>
+  </div>
+
   <main id="main-content">
-    <div class="page-header">
-      <h2>About Our Trusted Auto Repair Shop</h2>
-      <p>Your trusted auto repair shop with certified automotive technicians delivering quality car service since day one</p>
-    </div>
 
-    <div class="content-grid">
-      <div class="about-text">
-        <h3>Our Story</h3>
-<p>From the beginning, we knew we wanted to do things differently. We saw too many shops cutting corners, rushing jobs, and leaving customers confused about what their vehicles actually needed. At JP's Garage, we built our reputation one honest conversation and one quality repair at a time. Today, we're proud to be the shop that families, professionals, and car enthusiasts turn to when they want it done right.</p>
-        
-       <h3>Certified Automotive Technicians Who Care</h3>
-<p>We're not your typical quick fix garage. Our team of certified automotive technicians brings years of experience and a genuine love for what we do. As a trusted auto repair shop, we invest in the latest diagnostic equipment, use quality parts, and stand behind every job we complete. Our quality car service means no confusing jargon, no unnecessary upselling just straight talk from certified automotive technicians who care about your vehicle and your safety.</p>
-
-        <h3>Our Commitment to Quality Car Service</h3>
-<p>Whether you drive a daily commuter, a family SUV, or a luxury performance vehicle, our certified automotive technicians treat your car with the same level of attention and expertise. We know that when your vehicle is in the shop, it impacts your whole day that's why our trusted auto repair shop works efficiently without sacrificing quality car service, keeps you informed every step of the way, and does everything we can to get you back on the road safely.</p>
-      </div>
-
-      <div class="image-container">
-       <img src="images\car shop.jpg" alt="Trusted auto repair shop facility with certified automotive technicians providing quality car service">
-      </div>
-    </div>
-
-    <section aria-labelledby="our-values-heading">
-      <h3 id="our-values-heading" class="sr-only">Our Core Values</h3>
-      <div class="values-section">
-       <article class="value-card">
-  <div class="value-icon" aria-hidden="true">🔧</div>
-  <h4>Certified Automotive Technicians</h4>
-  <p>Our certified automotive technicians bring years of experience and ongoing training to deliver exceptional quality car service</p>
-</article>
-
-        <article class="value-card">
-          <div class="value-icon" aria-hidden="true">✓</div>
-          <h4>Quality Guarantee</h4>
-          <p>We stand behind every repair with comprehensive warranties</p>
-        </article>
-
-        <article class="value-card">
-          <div class="value-icon" aria-hidden="true">💬</div>
-          <h4>Transparent Service</h4>
-          <p>Clear communication and honest recommendations you can trust</p>
-        </article>
+    <!-- Our Story -->
+    <section style="margin-bottom:3em;" aria-labelledby="story-title">
+      <div style="display:flex; gap:2.5em; align-items:flex-start; flex-wrap:wrap;">
+        <div style="flex:1; min-width:280px;">
+          <h2 class="section-title" id="story-title">Our <span>Story</span></h2>
+          <hr class="section-divider">
+          <p style="color:var(--text-muted); margin-bottom:1em;">JP's Garage was founded on a simple idea: that every vehicle owner deserves to be treated with respect, and every repair should come with straight talk and fair pricing. No upsells, no surprises — just quality work done right.</p>
+          <p style="color:var(--text-muted); margin-bottom:1em;">What started as a small neighborhood shop has grown into Aurora's go-to destination for reliable automotive care. We've built our reputation one satisfied customer at a time, and we're proud of every vehicle that leaves our bay in better shape than it came in.</p>
+          <p style="color:var(--text-muted);">Whether it's a quick oil change or a complex engine repair, you'll always know what we're doing, why we're doing it, and exactly what it'll cost — before we ever pick up a wrench.</p>
+        </div>
+        <img
+          src="images/car shop.jpg"
+          alt="The JP's Garage repair facility in Aurora, IL"
+          style="width:400px; max-width:100%; height:280px; object-fit:cover; border-radius:var(--radius); box-shadow:var(--shadow); flex-shrink:0;"
+        >
       </div>
     </section>
 
-    <section class="closing-statement" aria-labelledby="our-promise-heading">
-      <h3 id="our-promise-heading">Our Promise to You</h3>
-      <p>At JP's Garage, we're not just fixing cars we're building relationships and earning trust, one customer at a time.</p>
+    <!-- Values -->
+    <section style="margin-bottom:3em;" aria-labelledby="values-title">
+      <h2 class="section-title" id="values-title">What We <span>Stand For</span></h2>
+      <hr class="section-divider">
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Honesty</h3>
+          <p>We'll tell you exactly what your vehicle needs — and what it doesn't. You'll never walk out with a repair you didn't need.</p>
+        </div>
+        <div class="card">
+          <h3>Quality</h3>
+          <p>We use quality parts and proven techniques on every job. We stand behind our work because your safety depends on it.</p>
+        </div>
+        <div class="card">
+          <h3>Transparency</h3>
+          <p>You'll get a clear estimate before we begin. No hidden fees, no last-minute additions — just the price we quoted.</p>
+        </div>
+        <div class="card">
+          <h3>Community</h3>
+          <p>We're your neighbors. Aurora is our home, and we take pride in keeping the cars on its roads safe and road-ready.</p>
+        </div>
+      </div>
     </section>
-	<section style="background-color: white; padding: 2.5em; border-radius: 0.625em; margin-top: 2.5em; box-shadow: 0 0.125em 0.625em rgba(0,0,0,0.1);">
-  <h3 style="color: #183bf0; text-align: center; margin-top: 0;">Experience the JP's Garage Difference</h3>
-  <p style="color: #555; line-height: 1.8; text-align: center; max-width: 50em; margin: 1em auto 0;">
-    As your trusted auto repair shop, we combine the expertise of certified automotive technicians with a genuine commitment to customer satisfaction. Our quality car service isn't just about fixing vehicles it's about building lasting relationships based on honesty, reliability, and exceptional workmanship. When you choose JP's Garage, you're choosing a trusted auto repair shop that puts your needs first. Visit us today and discover why our customers keep coming back year after year for all their automotive needs.
-  </p>
-</section>
+
+    <!-- Why Choose Us -->
+    <section style="margin-bottom:3em; background:var(--gray-light); padding:2em; border-radius:var(--radius);" aria-labelledby="why-title">
+      <h2 class="section-title" id="why-title">Why Choose <span>JP's?</span></h2>
+      <hr class="section-divider">
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75em;">
+        <li style="display:flex; gap:0.75em; align-items:flex-start;">
+          <span style="color:var(--red); font-weight:700; font-size:1.1rem; margin-top:0.1em;">✓</span>
+          <span style="color:var(--text-muted);">Experienced technicians with years of hands-on expertise across all makes and models</span>
+        </li>
+        <li style="display:flex; gap:0.75em; align-items:flex-start;">
+          <span style="color:var(--red); font-weight:700; font-size:1.1rem; margin-top:0.1em;">✓</span>
+          <span style="color:var(--text-muted);">State-of-the-art diagnostic equipment for accurate, fast troubleshooting</span>
+        </li>
+        <li style="display:flex; gap:0.75em; align-items:flex-start;">
+          <span style="color:var(--red); font-weight:700; font-size:1.1rem; margin-top:0.1em;">✓</span>
+          <span style="color:var(--text-muted);">Upfront, written estimates before any work begins</span>
+        </li>
+        <li style="display:flex; gap:0.75em; align-items:flex-start;">
+          <span style="color:var(--red); font-weight:700; font-size:1.1rem; margin-top:0.1em;">✓</span>
+          <span style="color:var(--text-muted);">Genuine and quality aftermarket parts that meet manufacturer specifications</span>
+        </li>
+        <li style="display:flex; gap:0.75em; align-items:flex-start;">
+          <span style="color:var(--red); font-weight:700; font-size:1.1rem; margin-top:0.1em;">✓</span>
+          <span style="color:var(--text-muted);">A welcoming, no-pressure environment where questions are always welcome</span>
+        </li>
+        <li style="display:flex; gap:0.75em; align-items:flex-start;">
+          <span style="color:var(--red); font-weight:700; font-size:1.1rem; margin-top:0.1em;">✓</span>
+          <span style="color:var(--text-muted);">Conveniently located in Aurora with flexible scheduling to fit your life</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section style="text-align:center; padding:2em 0;" aria-labelledby="cta2-title">
+      <h2 class="section-title" id="cta2-title" style="justify-content:center;">Come <span>See Us</span></h2>
+      <hr class="section-divider" style="margin:0.5em auto 1.5em;">
+      <p style="color:var(--text-muted); max-width:520px; margin:0 auto 1.5em;">Ready to experience the JP's Garage difference? Schedule an appointment or stop by — we'd love to earn your trust.</p>
+      <a href="appointments.html" class="btn btn-primary">Book an Appointment</a>
+      <a href="contact_us.html" class="btn btn-outline" style="margin-left:0.75em;">Contact Us</a>
+    </section>
+
   </main>
 
   <footer role="contentinfo">
-    <nav aria-label="Footer navigation" class="footer-links">
-      <a href="index.html">Home</a> |
-      <a href="services.html">Services</a> |
-      <a href="resources.html">Resources</a> |
-      <a href="appointments.html">Appointments</a> |
-      <a href="contact_us.html">Get in Touch</a> |
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <span class="footer-divider" aria-hidden="true">|</span>
+      <a href="services.html">Services</a>
+      <span class="footer-divider" aria-hidden="true">|</span>
+      <a href="resources.html">Resources</a>
+      <span class="footer-divider" aria-hidden="true">|</span>
+      <a href="appointments.html">Appointments</a>
+      <span class="footer-divider" aria-hidden="true">|</span>
+      <a href="contact_us.html">Get in Touch</a>
+      <span class="footer-divider" aria-hidden="true">|</span>
       <a href="about_us.html" aria-current="page">About Us</a>
     </nav>
-    <form class="subscription-box" onsubmit="subscribe(event)" aria-label="Newsletter subscription">
-      <label for="subscribeEmail">Subscribe to receive exclusive perks:</label>
-      <input type="email" id="subscribeEmail" name="subscribeEmail" placeholder="Enter your email" required aria-required="true">
+
+    <form class="subscribe-box" onsubmit="subscribe(event)" aria-label="Newsletter subscription">
+      <label for="subscribeEmail">Get Exclusive Perks:</label>
+      <input type="email" id="subscribeEmail" name="subscribeEmail" placeholder="your@email.com" required aria-required="true">
       <button type="submit">Subscribe</button>
     </form>
-    <div id="subscriptionMessage" class="subscription-message" role="status" aria-live="polite"></div>
+    <div id="subscriptionMessage" class="subscribe-msg" role="status" aria-live="polite"></div>
+    <p class="footer-copy">&copy; 2025 JP's Garage · Aurora, IL · All Rights Reserved</p>
   </footer>
 
-  <script>
-    function subscribe(event) {
-      event.preventDefault();
-      const email = document.getElementById('subscribeEmail').value;
-      const messageDiv = document.getElementById('subscriptionMessage');
-      
-      if (email && email.includes('@')) {
-        messageDiv.textContent = 'Thank you for subscribing! Check your email for exclusive perks.';
-        messageDiv.style.color = '#28a745';
-        document.getElementById('subscribeEmail').value = '';
-      } else {
-        messageDiv.textContent = 'Please enter a valid email address.';
-        messageDiv.style.color = '#cc0000';
-      }
-    }
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
